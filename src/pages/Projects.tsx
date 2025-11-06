@@ -60,7 +60,7 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-tertiary rounded-lg overflow-hidden"
+                className="bg-tertiary dark:bg-[#2a2a2a] rounded-lg overflow-hidden transition-colors border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg"
               >
                 <img
                   src={project.image}
@@ -68,13 +68,13 @@ const Projects = () => {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-textSecondary mb-4">{project.description}</p>
+                  <h3 className="text-xl font-bold mb-2 text-textPrimary dark:text-white">{project.title}</h3>
+                  <p className="text-sm sm:text-base text-textSecondary dark:text-[#8892b0] mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-primary px-2 py-1 rounded text-sm"
+                        className="bg-slate-100 dark:bg-[#1a1a1a] px-2 py-1 rounded text-sm text-textPrimary dark:text-white border border-slate-200 dark:border-slate-700"
                       >
                         {tech}
                       </span>
@@ -84,7 +84,7 @@ const Projects = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-secondary hover:underline"
+                    className="text-teal-600 dark:text-secondary hover:underline"
                   >
                     View Project →
                   </a>

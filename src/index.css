@@ -3,8 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    cursor: default;
+  }
+  
   body {
-    @apply bg-primary text-textPrimary;
+    @apply bg-white dark:bg-[#1a1a1a] text-textPrimary dark:text-white transition-colors;
+    cursor: default;
+  }
+  
+  input, textarea, [contenteditable] {
+    cursor: text;
+  }
+  
+  button, a, [role="button"], [onclick] {
+    cursor: pointer;
+  }
+  
+  button:disabled, [disabled] {
+    cursor: not-allowed;
   }
 }
 
@@ -14,6 +31,10 @@
   }
   
   .btn-primary {
-    @apply bg-secondary text-primary hover:bg-secondary/90;
+    @apply bg-teal-600 dark:bg-secondary text-white dark:text-[#1a1a1a] hover:bg-teal-700 dark:hover:bg-secondary/90;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-8 text-textPrimary dark:text-white;
   }
 } 

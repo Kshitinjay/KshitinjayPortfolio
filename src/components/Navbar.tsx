@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -18,10 +20,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full bg-primary/90 backdrop-blur-sm z-50">
+    <nav className="fixed w-full bg-white/90 dark:bg-[#1a1a1a]/90 backdrop-blur-sm z-50 transition-colors border-b border-slate-200 dark:border-slate-800">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-2xl font-bold text-secondary">
+          <Link to="/" className="text-xl sm:text-2xl font-bold text-teal-600 dark:text-secondary">
             Kshitinjay Kumar
           </Link>
 
@@ -31,32 +33,56 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-textSecondary hover:text-secondary transition-colors"
+                className="text-textSecondary dark:text-[#8892b0] hover:text-teal-600 dark:hover:text-secondary transition-colors"
               >
                 {item.name}
               </Link>
             ))}
             <button
               onClick={handleResumeClick}
-              className="flex items-center gap-2 text-textSecondary hover:text-secondary transition-colors"
+              className="flex items-center gap-2 text-textSecondary dark:text-[#8892b0] hover:text-teal-600 dark:hover:text-secondary transition-colors"
               title="Download Resume"
             >
               <ArrowDownTrayIcon className="h-5 w-5" />
               <span>Download Resume</span>
             </button>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-textSecondary dark:text-[#8892b0] hover:text-teal-600 dark:hover:text-secondary hover:bg-tertiary dark:hover:bg-[#2a2a2a] transition-colors"
+              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? (
+                <SunIcon className="h-5 w-5" />
+              ) : (
+                <MoonIcon className="h-5 w-5" />
+              )}
+            </button>
           </div>
 
           {/* Mobile Navigation Button */}
-          <button
-            className="md:hidden text-textPrimary"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? (
-              <XMarkIcon className="h-6 w-6" />
-            ) : (
-              <Bars3Icon className="h-6 w-6" />
-            )}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-textPrimary dark:text-white hover:bg-tertiary dark:hover:bg-[#2a2a2a] transition-colors"
+              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? (
+                <SunIcon className="h-6 w-6" />
+              ) : (
+                <MoonIcon className="h-6 w-6" />
+              )}
+            </button>
+            <button
+              className="text-textPrimary dark:text-white"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? (
+                <XMarkIcon className="h-6 w-6" />
+              ) : (
+                <Bars3Icon className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Menu */}
@@ -67,7 +93,7 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="block px-3 py-2 text-textSecondary hover:text-secondary transition-colors"
+                  className="block px-3 py-2 text-textSecondary dark:text-[#8892b0] hover:text-teal-600 dark:hover:text-secondary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -78,7 +104,7 @@ const Navbar = () => {
                   handleResumeClick();
                   setIsOpen(false);
                 }}
-                className="flex items-center px-3 py-2 text-textSecondary hover:text-secondary transition-colors"
+                className="flex items-center px-3 py-2 text-textSecondary dark:text-[#8892b0] hover:text-teal-600 dark:hover:text-secondary transition-colors"
               >
                 <ArrowDownTrayIcon className="h-5 w-5 mr-2" />
                 Download Resume

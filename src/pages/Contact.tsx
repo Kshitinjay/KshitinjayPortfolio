@@ -57,8 +57,8 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="max-w-2xl mx-auto"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">Contact Me</h1>
-          <p className="text-textSecondary mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-textPrimary dark:text-white">Contact Me</h1>
+          <p className="text-sm sm:text-base text-textSecondary dark:text-[#8892b0] mb-8">
             Feel free to reach out to me for any questions or opportunities. I'll get back to you as soon as possible.
           </p>
 
@@ -68,7 +68,7 @@ const Contact = () => {
             className="space-y-6"
           >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
+              <label htmlFor="name" className="block text-sm font-medium mb-2 text-textPrimary dark:text-white">
                 Name
               </label>
               <input
@@ -78,13 +78,13 @@ const Contact = () => {
                 value={form.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg bg-tertiary border border-gray-700 focus:border-secondary focus:outline-none"
+                className="w-full px-4 py-2 rounded-lg bg-white dark:bg-[#2a2a2a] border border-slate-300 dark:border-gray-700 focus:border-teal-600 dark:focus:border-secondary focus:outline-none text-textPrimary dark:text-white placeholder-slate-400 dark:placeholder-gray-400 transition-colors shadow-sm"
                 placeholder="Your name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <label htmlFor="email" className="block text-sm font-medium mb-2 text-textPrimary dark:text-white">
                 Email
               </label>
               <input
@@ -94,13 +94,13 @@ const Contact = () => {
                 value={form.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg bg-tertiary border border-gray-700 focus:border-secondary focus:outline-none"
+                className="w-full px-4 py-2 rounded-lg bg-white dark:bg-[#2a2a2a] border border-slate-300 dark:border-gray-700 focus:border-teal-600 dark:focus:border-secondary focus:outline-none text-textPrimary dark:text-white placeholder-slate-400 dark:placeholder-gray-400 transition-colors shadow-sm"
                 placeholder="Your email"
               />
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium mb-2">
+              <label htmlFor="subject" className="block text-sm font-medium mb-2 text-textPrimary dark:text-white">
                 Subject
               </label>
               <input
@@ -110,13 +110,13 @@ const Contact = () => {
                 value={form.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg bg-tertiary border border-gray-700 focus:border-secondary focus:outline-none"
+                className="w-full px-4 py-2 rounded-lg bg-white dark:bg-[#2a2a2a] border border-slate-300 dark:border-gray-700 focus:border-teal-600 dark:focus:border-secondary focus:outline-none text-textPrimary dark:text-white placeholder-slate-400 dark:placeholder-gray-400 transition-colors shadow-sm"
                 placeholder="Subject"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <label htmlFor="message" className="block text-sm font-medium mb-2 text-textPrimary dark:text-white">
                 Message
               </label>
               <textarea
@@ -126,7 +126,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-2 rounded-lg bg-tertiary border border-gray-700 focus:border-secondary focus:outline-none"
+                className="w-full px-4 py-2 rounded-lg bg-white dark:bg-[#2a2a2a] border border-slate-300 dark:border-gray-700 focus:border-teal-600 dark:focus:border-secondary focus:outline-none text-textPrimary dark:text-white placeholder-slate-400 dark:placeholder-gray-400 transition-colors shadow-sm"
                 placeholder="Your message"
               />
             </div>
@@ -147,7 +147,7 @@ const Contact = () => {
               className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${
                 loading
                   ? 'bg-gray-600 cursor-not-allowed text-gray-300'
-                  : 'bg-secondary hover:bg-secondary/90 text-primary'
+                  : 'bg-teal-600 dark:bg-secondary hover:bg-teal-700 dark:hover:bg-secondary/90 text-white dark:text-[#1a1a1a]'
               }`}
             >
               {loading ? 'Sending...' : 'Send Message'}
@@ -155,11 +155,11 @@ const Contact = () => {
           </form>
 
           <div className="mt-12 text-center">
-            <h2 className="text-xl font-bold mb-4">Other Ways to Connect</h2>
-            <div className="flex justify-center space-x-6">
+            <h2 className="text-xl font-bold mb-4 text-textPrimary dark:text-white">Other Ways to Connect</h2>
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               <a
                 href="mailto:kshitinjay20@gmail.com"
-                className="text-textSecondary hover:text-secondary transition-colors"
+                className="text-textSecondary dark:text-[#8892b0] hover:text-teal-600 dark:hover:text-secondary transition-colors"
               >
                 Email
               </a>
@@ -167,7 +167,7 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/kshitinjaykumar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-textSecondary hover:text-secondary transition-colors"
+                className="text-textSecondary dark:text-[#8892b0] hover:text-teal-600 dark:hover:text-secondary transition-colors"
               >
                 LinkedIn
               </a>
@@ -175,7 +175,7 @@ const Contact = () => {
                 href="https://github.com/Kshitinjay"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-textSecondary hover:text-secondary transition-colors"
+                className="text-textSecondary dark:text-[#8892b0] hover:text-teal-600 dark:hover:text-secondary transition-colors"
               >
                 GitHub
               </a>

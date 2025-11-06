@@ -52,7 +52,7 @@ const Experience = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">Experience</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-textPrimary dark:text-white">Experience</h1>
           
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -61,15 +61,15 @@ const Experience = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative pl-8 border-l-2 border-secondary"
+                className="relative pl-8 border-l-2 border-teal-600 dark:border-secondary"
               >
-                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-secondary"></div>
+                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-teal-600 dark:bg-secondary"></div>
                 <div className="mb-4">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4">
-                    <h2 className="text-2xl font-bold text-secondary">{exp.company}</h2>
+                    <h2 className="text-2xl font-bold text-teal-600 dark:text-secondary">{exp.company}</h2>
                     <div className="text-left sm:text-right">
-                      <h3 className="text-xl font-semibold">{exp.role}</h3>
-                      <div className="flex flex-wrap gap-2 sm:gap-4 text-textSecondary sm:justify-end">
+                      <h3 className="text-xl font-semibold text-textPrimary dark:text-white">{exp.role}</h3>
+                      <div className="flex flex-wrap gap-2 sm:gap-4 text-textSecondary dark:text-[#8892b0] sm:justify-end">
                         <span>{exp.location}</span>
                         <span>•</span>
                         <span>{exp.period}</span>
@@ -77,7 +77,7 @@ const Experience = () => {
                     </div>
                   </div>
                 </div>
-                <ul className="list-disc list-inside space-y-2 text-textSecondary">
+                <ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-textSecondary dark:text-[#8892b0]">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i} className="ml-4">{achievement}</li>
                   ))}
