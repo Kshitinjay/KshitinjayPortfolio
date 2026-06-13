@@ -4,35 +4,30 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
+      // v4 palette — mapped to the CSS variables defined in src/index.css (:root)
       colors: {
-        primary: '#ffffff',
-        secondary: '#64ffda',
-        tertiary: '#e2e8f0',
-        textPrimary: '#0f172a',
-        textSecondary: '#1e293b',
-        error: '#ff4d4d',
-        success: '#4caf50',
+        bg: 'var(--bg)',
+        panel: 'var(--panel)',
+        ink: 'var(--ink)',
+        'ink-soft': 'var(--ink-soft)',
+        'ink-faint': 'var(--ink-faint)',
+        line: 'var(--line)',
+        'line-strong': 'var(--line-strong)',
+        coral: 'var(--coral)',
+        'coral-soft': 'var(--coral-soft)',
+        'coral-line': 'var(--coral-line)',
       },
-      spacing: {
-        xs: '0.25rem',
-        sm: '0.5rem',
-        md: '1rem',
-        lg: '1.5rem',
-        xl: '2rem',
+      fontFamily: {
+        display: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
-      borderRadius: {
-        sm: '0.25rem',
-        md: '0.2rem',
-        lg: '0.5rem',
-        full: '9999px',
-      },
-      transitionProperty: {
-        'default': 'all 0.3s ease',
+      maxWidth: {
+        wrap: 'var(--maxw)',
       },
     },
   },
   plugins: [],
-} 
+}

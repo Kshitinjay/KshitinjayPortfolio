@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# Kshitinjay Kumar — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio for a frontend engineer building the real-time interfaces of AI products.
+Single-page, light/airy editorial design (the **v4** theme): warm white + a single coral accent,
+with a signature `agent · runtime` pipeline panel that will later host an "Ask me anything"
+assistant.
 
-Currently, two official plugins are available:
+**Live:** https://kshitinjay.github.io/KshitinjayPortfolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## Expanding the ESLint configuration
+- **Vite + React 18 + TypeScript**
+- **Tailwind CSS** — tokens are mapped to the v4 CSS variables defined in `src/index.css`;
+  bespoke pieces (the pipeline panel, the editorial work grid) live in a global `@layer components`
+  driven by those same variables, so the rendered output matches the approved design exactly.
+- Native **IntersectionObserver** scroll reveal (`src/hooks/useReveal.ts`) — no animation library.
+- Deployed to **GitHub Pages** via GitHub Actions on push to `master`.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Structure
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+  App.tsx                  single-page composition
+  index.css                design tokens (:root) + base + bespoke component layer
+  hooks/useReveal.ts       scroll-reveal IntersectionObserver
+  components/
+    Header.tsx             sticky minimal header (+ mobile menu)
+    Footer.tsx             mono footer
+    RuntimePanel.tsx       the `agent · runtime` signature panel (mock assistant)
+    sections/              Hero, Work, Stack, About, Contact
+  data/                    work.ts, stack.ts, assistantMock.ts  (centralised content)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The `data/` content doubles as the seed for the future assistant's knowledge base.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev       # local dev server
+npm run build     # type-check + production build to dist/
+npm run preview   # serve the production build locally
 ```
+
+## Design source of truth
+
+The approved design is `kshitinjay-portfolio-v4.html`. Decisions and the long-term AI-assistant
+roadmap are documented alongside the project; the migration plan is in `THEME-MIGRATION-PLAN.md`.
+
+## Roadmap
+
+The `agent · runtime` panel currently runs a local mock with a typewriter reveal. The `respond()`
+seam in `RuntimePanel.tsx` is the integration point for a future streamed backend (Node + Gemini),
+swappable without layout changes.
