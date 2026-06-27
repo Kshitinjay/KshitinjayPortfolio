@@ -35,6 +35,18 @@ export const work: WorkEntry[] = [
   },
   {
     num: '03',
+    title: 'Kanban — team task tracker',
+    meta: 'FULL-STACK PROJECT · REACT 19 · REDUX · NODE · MONGODB',
+    desc:
+      'A team task-tracker in the spirit of Trello and Linear — JWT auth with role-based permissions (admin vs member), a drag-and-drop board over @dnd-kit, a KPI dashboard, and full ticket CRUD with comment threads. React 19 + a typed Redux data layer, talking to a separate Node/Express/MongoDB API.',
+    tags: ['React 19', 'TypeScript', 'Redux Toolkit', '@dnd-kit', 'JWT auth', 'Node.js', 'MongoDB'],
+    impact: 'Live ↗',
+    impactLabel: 'demo',
+    impactSmall: true,
+    href: 'https://kanban-weld-seven.vercel.app',
+  },
+  {
+    num: '04',
     title: 'Naukri Board',
     meta: 'FULL-STACK PROJECT · REACT · NODE · MONGODB',
     desc:
@@ -46,7 +58,7 @@ export const work: WorkEntry[] = [
     // TODO: add the live Naukri Board demo URL here
   },
   {
-    num: '04',
+    num: '05',
     title: 'Blood Finder Web App',
     meta: 'FRONTEND PROJECT · REACT · REST APIs · BOOTSTRAP',
     desc:
@@ -58,7 +70,7 @@ export const work: WorkEntry[] = [
     href: 'https://online-blood-finder-major-project.vercel.app/',
   },
   {
-    num: '05',
+    num: '06',
     title: 'Meeting Room Booking',
     meta: 'FRONTEND PROJECT · REACT · CONTEXT API',
     desc:
