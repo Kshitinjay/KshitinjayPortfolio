@@ -55,7 +55,7 @@ export const work: WorkEntry[] = [
     impact: 'Live ↗',
     impactLabel: 'demo',
     impactSmall: true,
-    // TODO: add the live Naukri Board demo URL here
+    href: 'https://frontend-flame-beta-25.vercel.app/',
   },
   {
     num: '05',
